@@ -1,4 +1,4 @@
-export function Portfolio() {
+export default function Portfolio() {
   return (
     <h1>
       Portfolio

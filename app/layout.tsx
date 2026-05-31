@@ -26,11 +26,22 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-        <NavigationBar />
-        {children}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <body>
+        {/* The 'flex' class forces the Sidebar and the main content to sit side-by-side */}
+        <div className="flex min-h-screen">
+          
+          {/* Navbar component */}
+          <aside className="w-48 bg-slate-900 text-white fixed h-screen">
+            <NavigationBar />
+          </aside>
+
+          {/* The 'children' is page.tsx content. */}
+          <main className="flex-1 pl-48 bg-slate-50">
+            {children}
+          </main>
+
+        </div>
       </body>
     </html>
   );

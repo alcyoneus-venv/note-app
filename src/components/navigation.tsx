@@ -1,13 +1,11 @@
 export function NavigationBar() {
-    return (
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/portfolio">Portfolio</a></li>
-                <li><a href="/experience">Experience</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
-    );
+  return (
+    <nav className="flex flex-col gap-10 left-0 top-0 h-screen w-45 p-4 justify-center bg-gray-800">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/experience">Experience</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  );
 }
