@@ -1,8 +1,14 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
+    "allowUnreachableCode": true,
+    "baseUrl": "./",
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
@@ -19,7 +25,15 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@/components/*": [
+        "src/components/*"
+      ],
+      "@/models/*": [
+        "src/models/*"
+      ]
     }
   },
   "include": [
@@ -30,5 +44,7 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
