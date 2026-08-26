@@ -1,26 +1,126 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --sky-blue: #56A4D8;
+  --sky-blue-light: #7EBDE5;
+  --sky-blue-dark: #3A8ABF;
+  --grey: #9CA3AF;
+  --grey-light: #D1D5DB;
+  --grey-dark: #6B7280;
+  --white: #FFFFFF;
+  --off-white: #F3F4F6;
+  --dark-grey: #374151;
+  --dark-grey-light: #4B5563;
+  --dark-grey-dark: #1F2937;
+  --background: var(--white);
+  --foreground: var(--dark-grey);
+  --card-bg: var(--white);
+  --card-border: var(--grey-light);
+  --nav-bg: var(--white);
+  --nav-text: var(--dark-grey);
+  --nav-hover-bg: color-mix(in srgb, var(--sky-blue) 10%, transparent);
+  --nav-active-bg: color-mix(in srgb, var(--sky-blue) 15%, transparent);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-sky-blue: var(--sky-blue);
+  --color-sky-blue-light: var(--sky-blue-light);
+  --color-sky-blue-dark: var(--sky-blue-dark);
+  --color-grey: var(--grey);
+  --color-grey-light: var(--grey-light);
+  --color-grey-dark: var(--grey-dark);
+  --color-off-white: var(--off-white);
+  --color-dark-grey: var(--dark-grey);
+  --color-dark-grey-light: var(--dark-grey-light);
+  --color-dark-grey-dark: var(--dark-grey-dark);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-nav-bg: var(--nav-bg);
+  --color-nav-text: var(--nav-text);
+  --color-nav-hover-bg: var(--nav-hover-bg);
+  --color-nav-active-bg: var(--nav-active-bg);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--dark-grey-dark);
+    --foreground: var(--off-white);
+    --card-bg: var(--dark-grey);
+    --card-border: var(--dark-grey-light);
+    --nav-bg: var(--dark-grey-dark);
+    --nav-text: var(--off-white);
+    --nav-hover-bg: color-mix(in srgb, var(--sky-blue) 20%, transparent);
+    --nav-active-bg: color-mix(in srgb, var(--sky-blue) 25%, transparent);
   }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--sky-blue) 30%, transparent);
+  color: var(--dark-grey-dark);
+}
+
+.link-hover {
+  transition: all 0.2s ease-in-out;
+}
+
+.link-hover:hover {
+  background: var(--nav-hover-bg);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--sky-blue) 15%, transparent);
+}
+
+.card-hover {
+  transition: all 0.2s ease-in-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--sky-blue) 12%, transparent);
+  border-color: var(--sky-blue-light);
+}
+
+.btn-primary {
+  background: var(--sky-blue);
+  color: var(--white);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background: var(--sky-blue-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--sky-blue) 30%, transparent);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--dark-grey);
+  border: 1px solid var(--grey-light);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-ghost:hover {
+  background: var(--nav-hover-bg);
+  border-color: var(--sky-blue-light);
+  color: var(--sky-blue-dark);
+  transform: translateY(-1px);
 }
