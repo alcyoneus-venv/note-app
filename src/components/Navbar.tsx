@@ -2,102 +2,155 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
+import { motion } from "motion/react"
+import ThemeToggle from "@/components/ThemeToggle"
+import type { ReactNode } from "react"
 
-const sectionLinks = [
-	{ name: "About", href: "#about" },
-	{ name: "Projects", href: "#projects" },
-	{ name: "Experience", href: "#experience" },
-	{ name: "Contact", href: "#contact" },
+function HomeIcon() {
+	return (
+		<svg
+			className="w-6 h-6"
+			aria-hidden="true"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="1.8"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M3 10.5 12 3l9 7.5M5 9v11a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9" />
+		</svg>
+	)
+}
+
+function FolderIcon() {
+	return (
+		<svg
+			className="w-6 h-6"
+			aria-hidden="true"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="1.8"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M3 7a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" />
+		</svg>
+	)
+}
+
+function TimelineIcon() {
+	return (
+		<svg
+			className="w-6 h-6"
+			aria-hidden="true"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="1.8"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M12 8v4l2.5 2.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+		</svg>
+	)
+}
+
+function ContactIcon() {
+	return (
+		<svg
+			className="w-6 h-6"
+			aria-hidden="true"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="1.8"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M4 4h16a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z" />
+			<path d="m3 5 9 6 9-6" />
+		</svg>
+	)
+}
+
+function GamesIcon() {
+	return (
+		<svg
+			className="w-6 h-6"
+			aria-hidden="true"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="1.8"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<rect x="2" y="7" width="20" height="10" rx="5" />
+			<path d="M5 10v4M3 12h4M15 9.5h.01M18 12.5h.01" />
+		</svg>
+	)
+}
+
+type NavLink = {
+	name: string
+	href: string
+	icon: ReactNode
+}
+
+const links: NavLink[] = [
+	{ name: "Home", href: "/", icon: <HomeIcon /> },
+	{ name: "Projects", href: "/pages/projects", icon: <FolderIcon /> },
+	{
+		name: "Timeline",
+		href: "/pages/experience",
+		icon: <TimelineIcon />,
+	},
+	{ name: "Contact", href: "/pages/contact", icon: <ContactIcon /> },
+	{ name: "Games", href: "/pages/games", icon: <GamesIcon /> },
 ]
-
-const pageLinks = [{ name: "Games", path: "/pages/games" }]
-
-const SCROLL_THRESHOLD = 200
 
 export default function Navbar() {
 	const pathname = usePathname()
-	const [isScrolled, setIsScrolled] = useState(false)
-	const [activeSection, setActiveSection] = useState("")
-
-	useEffect(() => {
-		const handleScroll = () => {
-			setIsScrolled(window.scrollY > SCROLL_THRESHOLD)
-		}
-		window.addEventListener("scroll", handleScroll, { passive: true })
-		return () => window.removeEventListener("scroll", handleScroll)
-	}, [])
-
-	useEffect(() => {
-		if (pathname !== "/") return
-
-		const sections = ["about", "projects", "experience", "contact"]
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						setActiveSection(entry.target.id)
-					}
-				})
-			},
-			{ rootMargin: "-20% 0px -60% 0px" },
-		)
-
-		sections.forEach((id) => {
-			const el = document.getElementById(id)
-			if (el) observer.observe(el)
-		})
-
-		return () => observer.disconnect()
-	}, [pathname])
-
-	const isHome = pathname === "/"
 
 	return (
-		<div
-			className={`fixed right-4 top-1/2 z-50 transition-all duration-300 ease-in-out ${
-				isScrolled ? "opacity-100" : "opacity-0 pointer-events-none"
-			}`}
-			style={{ transform: "translateY(-50%)" }}
-		>
-			<nav className="bg-nav-bg border border-card-border rounded-xl shadow-lg backdrop-blur-sm flex flex-col items-center py-3 px-2 gap-1">
-				{sectionLinks.map((link) => {
-					const isActive =
-						isHome && activeSection === link.href.slice(1)
-					return (
-						<a
-							key={link.href}
-							href={link.href}
-							title={link.name}
-							className={`w-10 h-10 flex items-center justify-center rounded-lg text-xs font-medium transition-all duration-200 ${
-								isActive
-									? "bg-sky-blue text-white shadow-sm"
-									: "text-nav-text link-hover"
-							}`}
-						>
-							{link.name.charAt(0)}
-						</a>
-					)
-				})}
-				<div className="w-6 h-px bg-card-border my-1" />
-				{pageLinks.map((link) => {
-					const isActive = pathname === link.path
+		<nav className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50">
+			<div className="flex items-center gap-1.5 rounded-2xl bg-nav-bg/90 border border-card-border shadow-xl backdrop-blur-md px-2.5 py-2">
+				{links.map((link) => {
+					const isActive = pathname === link.href
 					return (
 						<Link
-							key={link.path}
-							href={link.path}
-							title={link.name}
-							className={`w-10 h-10 flex items-center justify-center rounded-lg text-xs font-medium transition-all duration-200 ${
-								isActive
-									? "bg-sky-blue text-white shadow-sm"
-									: "text-nav-text link-hover"
-							}`}
+							key={link.href}
+							href={link.href}
+							className="group relative flex flex-col items-center"
 						>
-							{link.name.charAt(0)}
+							<span className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-xl bg-[#171E27] text-white text-xs font-medium whitespace-nowrap opacity-0 scale-90 transition-all duration-200 group-hover:opacity-100 group-hover:scale-100 pointer-events-none shadow-lg">
+								{link.name}
+								<span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#171E27]" />
+							</span>
+							<motion.span
+								whileHover={{ scale: 1.15, y: -4 }}
+								whileTap={{ scale: 0.9 }}
+								transition={{
+									type: "spring",
+									stiffness: 400,
+									damping: 18,
+								}}
+								className={`flex items-center justify-center w-12 h-12 rounded-xl transition-colors duration-200 ${
+									isActive
+										? "bg-sky-blue text-white shadow-md shadow-sky-blue/30"
+										: "text-nav-text hover:text-sky-blue hover:bg-nav-hover-bg"
+								}`}
+							>
+								{link.icon}
+							</motion.span>
 						</Link>
 					)
 				})}
-			</nav>
-		</div>
+				<div className="w-px h-7 bg-card-border mx-1" />
+				<ThemeToggle />
+			</div>
+		</nav>
 	)
 }

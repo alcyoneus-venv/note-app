@@ -5,6 +5,7 @@ export interface GithubProject {
 	html_url: string
 	stargazers_count: number
 	language: string | null
-	role?: "Ownder" | "Contributor"
+	fork: boolean
+	role?: "Owner" | "Contributor"
 	updated_at: string
 }

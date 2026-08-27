@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/Navbar"
+import { SITE_NAME } from "@/lib/config"
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -14,9 +15,19 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-	title: "Alcyoneus-Venv",
-	description: "Personal portfolio and projects",
+	title: SITE_NAME,
+	description: "Personal portfolio, projects, and timeline",
 }
+
+const themeScript = `
+(function () {
+  try {
+    var stored = localStorage.getItem('theme');
+    var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (dark) document.documentElement.classList.add('dark');
+  } catch (e) {}
+})();
+`
 
 export default function RootLayout({
 	children,
@@ -25,9 +36,13 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" className={geistSans.variable}>
-			<body className={geistMono.variable}>
+			<head>
+				{/* biome-ignore lint/security/noDangerouslySetInnerHtml: theme init must run before hydration to avoid FOUC */}
+				<script dangerouslySetInnerHTML={{ __html: themeScript }} />
+			</head>
+			<body className={`${geistMono.variable} pb-24`}>
 				<Navbar />
-				<main>{children}</main>
+				<main className="flex-1">{children}</main>
 			</body>
 		</html>
 	)

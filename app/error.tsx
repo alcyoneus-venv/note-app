@@ -25,6 +25,7 @@ export default function ErrorPage({
 				</p>
 				<button
 					onClick={() => unstable_retry()}
+					type="button"
 					className="btn-primary px-6 py-3 rounded-lg text-sm font-medium"
 				>
 					Try Again

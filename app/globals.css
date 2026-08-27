@@ -1,25 +1,38 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --sky-blue: #56A4D8;
-  --sky-blue-light: #7EBDE5;
-  --sky-blue-dark: #3A8ABF;
+  --sky-blue: #4FA2D8;
+  --sky-blue-light: #7EBDDE;
+  --sky-blue-dark: #3587B8;
   --grey: #9CA3AF;
   --grey-light: #D1D5DB;
   --grey-dark: #6B7280;
   --white: #FFFFFF;
-  --off-white: #F3F4F6;
+  --off-white: #F3F6FA;
   --dark-grey: #374151;
   --dark-grey-light: #4B5563;
-  --dark-grey-dark: #1F2937;
-  --background: var(--white);
+  --dark-grey-dark: #171E27;
+  --background: var(--off-white);
   --foreground: var(--dark-grey);
   --card-bg: var(--white);
   --card-border: var(--grey-light);
-  --nav-bg: var(--white);
+  --nav-bg: var(--card-bg);
   --nav-text: var(--dark-grey);
-  --nav-hover-bg: color-mix(in srgb, var(--sky-blue) 10%, transparent);
+  --nav-hover-bg: color-mix(in srgb, var(--sky-blue) 12%, transparent);
   --nav-active-bg: color-mix(in srgb, var(--sky-blue) 15%, transparent);
+}
+
+.dark {
+  --background: var(--dark-grey-dark);
+  --foreground: var(--off-white);
+  --card-bg: var(--dark-grey);
+  --card-border: var(--dark-grey-light);
+  --nav-bg: var(--dark-grey-dark);
+  --nav-text: var(--off-white);
+  --nav-hover-bg: color-mix(in srgb, var(--sky-blue) 20%, transparent);
+  --nav-active-bg: color-mix(in srgb, var(--sky-blue) 25%, transparent);
 }
 
 @theme inline {
@@ -45,19 +58,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--dark-grey-dark);
-    --foreground: var(--off-white);
-    --card-bg: var(--dark-grey);
-    --card-border: var(--dark-grey-light);
-    --nav-bg: var(--dark-grey-dark);
-    --nav-text: var(--off-white);
-    --nav-hover-bg: color-mix(in srgb, var(--sky-blue) 20%, transparent);
-    --nav-active-bg: color-mix(in srgb, var(--sky-blue) 25%, transparent);
-  }
-}
-
 * {
   box-sizing: border-box;
 }
@@ -72,6 +72,29 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Smooth light/dark theme transitions */
+body,
+body * {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.35s;
+  transition-timing-function: ease;
+}
+
+/* Glowing text/brand accents */
+.brand-gradient-text {
+  background: linear-gradient(
+    120deg,
+    var(--sky-blue-light),
+    var(--sky-blue) 45%,
+    var(--sky-blue-dark)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 ::selection {
@@ -90,12 +113,12 @@ body {
 }
 
 .card-hover {
-  transition: all 0.2s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 
 .card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px color-mix(in srgb, var(--sky-blue) 12%, transparent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--sky-blue) 18%, transparent);
   border-color: var(--sky-blue-light);
 }
 
@@ -108,7 +131,7 @@ body {
 .btn-primary:hover {
   background: var(--sky-blue-dark);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--sky-blue) 30%, transparent);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--sky-blue) 35%, transparent);
 }
 
 .btn-ghost {
@@ -123,4 +146,34 @@ body {
   border-color: var(--sky-blue-light);
   color: var(--sky-blue-dark);
   transform: translateY(-1px);
+}
+
+/* Timeline time-branch connectors */
+.timeline-node {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--sky-blue) 20%, transparent),
+    0 0 12px color-mix(in srgb, var(--sky-blue) 45%, transparent);
+  animation: node-pulse 3s ease-in-out infinite;
+}
+
+@keyframes node-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sky-blue) 20%, transparent),
+      0 0 10px color-mix(in srgb, var(--sky-blue) 40%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--sky-blue) 26%, transparent),
+      0 0 18px color-mix(in srgb, var(--sky-blue) 60%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

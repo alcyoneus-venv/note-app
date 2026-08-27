@@ -1,16 +1,11 @@
 import type { GithubProject } from "@/models/project"
-
-const FEATURED_REPOS = [
-	"next-speedo",
-	"jgvrp-speedo",
-	"DataEngineering",
-	"Data-Science",
-]
+import { GITHUB_USER } from "@/lib/config"
 
 export async function getGithubProject(): Promise<GithubProject[]> {
 	const res = await fetch(
-		"https://api.github.com/users/alcyoneus-venv/repos",
+		`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`,
 		{
+			headers: { Accept: "application/vnd.github+json" },
 			next: { revalidate: 3600 },
 		},
 	)
@@ -26,5 +21,11 @@ export async function getGithubProject(): Promise<GithubProject[]> {
 		return []
 	}
 
-	return data.filter((project) => FEATURED_REPOS.includes(project.name))
+	return data
+		.filter((project) => !project.fork)
+		.sort(
+			(a, b) =>
+				new Date(b.updated_at).getTime() -
+				new Date(a.updated_at).getTime(),
+		)
 }
