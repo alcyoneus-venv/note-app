@@ -1,6 +1,5 @@
 import Link from "next/link"
 import AnimatedCard from "@/components/motion/AnimatedCard"
-import { GDRIVE_EMBED_URL } from "@/lib/config"
 
 function CodeIcon() {
 	return (
@@ -80,82 +79,46 @@ const workItems = [
 export default function Home() {
 	return (
 		<div className="min-h-[calc(100vh-8rem)] px-6 py-16">
-			<div className="max-w-6xl mx-auto w-full">
-				{/* Hero: text left, 4:3 media frame right */}
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-					<div className="space-y-6 text-grey-dark leading-relaxed">
-						<h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-dark-grey dark:text-off-white">
-							Frezy
-							<span className="brand-gradient-text"> Ananta</span>
-						</h1>
-						<p className="text-lg">
-							Software Engineering student and web developer.
-							Building things, breaking things, and learning along
-							the way.
-						</p>
-						<p>
-							Hi! I&apos;m a Software Engineering undergraduate at
-							Politeknik Negeri Madiun. I spend my time building
-							web applications, contributing to projects, and
-							exploring new technologies.
-						</p>
-						<div className="flex flex-wrap items-center gap-4 pt-2">
-							<Link
-								href="/pages/projects"
-								className="btn-primary px-6 py-3 rounded-xl text-sm font-medium"
-							>
-								View Projects
-							</Link>
-							<Link
-								href="/pages/experience"
-								className="btn-ghost px-6 py-3 rounded-xl text-sm font-medium"
-							>
-								My Timeline
-							</Link>
-						</div>
-					</div>
-
-					<div>
-						{GDRIVE_EMBED_URL ? (
-							<AnimatedCard className="aspect-[4/3]">
-								<iframe
-									src={GDRIVE_EMBED_URL}
-									className="w-full h-full"
-									title="Google Drive embed"
-									frameBorder="0"
-									allow="autoplay; encrypted-media"
-									loading="lazy"
-								/>
-							</AnimatedCard>
-						) : (
-							<AnimatedCard className="aspect-[4/3] flex items-center justify-center p-10 border-2 border-dashed">
-								<div className="text-center">
-									<p className="text-sm font-medium text-grey-dark mb-2">
-										Add your Google Drive media
-									</p>
-									<p className="text-xs text-grey">
-										Set{" "}
-										<code className="font-mono text-sky-blue">
-											GDRIVE_EMBED_URL
-										</code>{" "}
-										in{" "}
-										<code className="font-mono text-sky-blue">
-											src/lib/config.ts
-										</code>{" "}
-										to show a photo or video here.
-									</p>
-								</div>
-							</AnimatedCard>
-						)}
+			<div className="max-w-3xl mx-auto w-full">
+				{/* Hero */}
+				<div className="text-center space-y-6 text-grey-dark leading-relaxed">
+					<h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-dark-grey dark:text-off-white">
+						Frezy
+						<span className="brand-gradient-text"> Ananta</span>
+					</h1>
+					<p className="text-lg">
+						Software Engineering student and web developer.
+						Building things, breaking things, and learning along
+						the way.
+					</p>
+					<p className="max-w-2xl mx-auto">
+						Hi! I&apos;m a Software Engineering undergraduate at
+						Politeknik Negeri Madiun. I spend my time building web
+						applications, contributing to projects, and exploring
+						new technologies.
+					</p>
+					<div className="flex flex-wrap justify-center items-center gap-4 pt-2">
+						<Link
+							href="/pages/projects"
+							className="btn-primary px-6 py-3 rounded-xl text-sm font-medium"
+						>
+							View Projects
+						</Link>
+						<Link
+							href="/pages/experience"
+							className="btn-ghost px-6 py-3 rounded-xl text-sm font-medium"
+						>
+							My Timeline
+						</Link>
 					</div>
 				</div>
 
 				{/* What I do — animated cards */}
 				<div className="mt-24">
-					<h2 className="text-2xl font-bold text-dark-grey dark:text-off-white mb-2">
+					<h2 className="text-2xl font-bold text-dark-grey dark:text-off-white mb-2 text-center">
 						What I do
 					</h2>
-					<div className="w-16 h-1 bg-sky-blue rounded-full mb-8" />
+					<div className="w-16 h-1 bg-sky-blue rounded-full mx-auto mb-8" />
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-5">
 						{workItems.map((item, i) => (
 							<AnimatedCard

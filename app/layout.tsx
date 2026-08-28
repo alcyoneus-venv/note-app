@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
+import AmbientBackground from "@/components/AmbientBackground"
 import Navbar from "@/components/Navbar"
 import { SITE_NAME } from "@/lib/config"
 
@@ -41,6 +42,7 @@ export default function RootLayout({
 				<script dangerouslySetInnerHTML={{ __html: themeScript }} />
 			</head>
 			<body className={`${geistMono.variable} pb-24`}>
+				<AmbientBackground />
 				<Navbar />
 				<main className="flex-1">{children}</main>
 			</body>

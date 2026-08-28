@@ -167,6 +167,67 @@ body * {
   }
 }
 
+/* Ambient background: light-mode birds */
+@keyframes bg-bird-fly {
+  from {
+    transform: translateX(-14vw);
+  }
+  to {
+    transform: translateX(114vw);
+  }
+}
+
+@keyframes bg-bird-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes bg-bird-flap {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.72);
+  }
+}
+
+/* Ambient background: dark-mode fireflies */
+@keyframes bg-firefly {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: translate(0, 0) scale(0.6);
+  }
+  25% {
+    opacity: 0.9;
+  }
+  55% {
+    opacity: 0.95;
+    transform: translate(6px, -14px) scale(1.15);
+  }
+  80% {
+    opacity: 0.25;
+    transform: translate(-5px, -7px) scale(0.8);
+  }
+}
+
+/* Ambient background: dark-mode paddy sway */
+@keyframes bg-paddy-sway {
+  0%,
+  100% {
+    transform: rotate(var(--sway-min, -2.5deg));
+  }
+  50% {
+    transform: rotate(var(--sway-max, 2.5deg));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
