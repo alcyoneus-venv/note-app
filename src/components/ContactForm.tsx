@@ -10,7 +10,6 @@ export default function ContactForm() {
 	const [form, setForm] = useState({
 		name: "",
 		email: "",
-		subject: "",
 		message: "",
 	})
 
@@ -23,9 +22,7 @@ export default function ContactForm() {
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault()
-		const subject = encodeURIComponent(
-			form.subject || `Contact from ${form.name || "Website"}`,
-		)
+		const subject = encodeURIComponent(`Contact from ${form.name || "Website"}`)
 		const body = encodeURIComponent(
 			`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
 		)
@@ -74,24 +71,6 @@ export default function ContactForm() {
 						className={inputStyles}
 					/>
 				</div>
-			</div>
-
-			<div>
-				<label
-					htmlFor="subject"
-					className="block text-sm font-medium text-dark-grey dark:text-off-white mb-1.5"
-				>
-					Subject
-				</label>
-				<input
-					id="subject"
-					name="subject"
-					type="text"
-					value={form.subject}
-					onChange={handleChange}
-					placeholder="What is this about?"
-					className={inputStyles}
-				/>
 			</div>
 
 			<div>

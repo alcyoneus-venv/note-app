@@ -85,7 +85,8 @@ export default function Home() {
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 					<div className="space-y-6 text-grey-dark leading-relaxed">
 						<h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-dark-grey dark:text-off-white">
-							Alcyoneus<span className="brand-gradient-text">-Venv</span>
+							Frezy
+							<span className="brand-gradient-text"> Ananta</span>
 						</h1>
 						<p className="text-lg">
 							Software Engineering student and web developer.
@@ -157,7 +158,11 @@ export default function Home() {
 					<div className="w-16 h-1 bg-sky-blue rounded-full mb-8" />
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-5">
 						{workItems.map((item, i) => (
-							<AnimatedCard key={item.title} delay={i * 0.1} className="p-6">
+							<AnimatedCard
+								key={item.title}
+								delay={i * 0.1}
+								className="p-6"
+							>
 								<div className="w-11 h-11 rounded-xl bg-sky-blue/10 text-sky-blue flex items-center justify-center mb-4">
 									{item.icon}
 								</div>

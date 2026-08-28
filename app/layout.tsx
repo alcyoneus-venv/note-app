@@ -35,7 +35,7 @@ export default function RootLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<html lang="en" className={geistSans.variable}>
+		<html lang="en" suppressHydrationWarning className={geistSans.variable}>
 			<head>
 				{/* biome-ignore lint/security/noDangerouslySetInnerHtml: theme init must run before hydration to avoid FOUC */}
 				<script dangerouslySetInnerHTML={{ __html: themeScript }} />

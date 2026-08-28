@@ -10,8 +10,9 @@ export default function ExperiencePage() {
 				</h1>
 				<div className="w-16 h-1 bg-sky-blue rounded-full mb-5" />
 				<p className="text-grey-dark text-sm">
-					A branching look at my journey so far — scroll horizontally to
-					travel the timeline.
+					My journey as a Yggdrasil tree — the trunk is the path, the
+					branches are the milestones. No scrolling needed, it
+					spreads out on its own.
 				</p>
 			</div>
 
