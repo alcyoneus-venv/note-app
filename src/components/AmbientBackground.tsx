@@ -9,7 +9,8 @@ export default function AmbientBackground() {
 				className="absolute inset-0 opacity-100 dark:opacity-0"
 				style={{ transition: "opacity 0.6s ease" }}
 			>
-				<div className="absolute inset-0 bg-gradient-to-b from-[#a4d3ef] via-[#cfe8f7] to-[#eef6fc]" />
+				<div className="absolute inset-0 bg-gradient-to-b from-[#a4d3ef]
+					via-[#cfe8f7] to-[#eef6fc]" />
 				<Sun />
 				<div className="absolute inset-x-0 bottom-0">
 					<PaddyField variant="light" />
@@ -58,7 +59,8 @@ export default function AmbientBackground() {
 				className="absolute inset-0 opacity-0 dark:opacity-100"
 				style={{ transition: "opacity 0.6s ease" }}
 			>
-				<div className="absolute inset-0 bg-gradient-to-b from-[#070d14] via-[#0c1420] to-[#16283a]" />
+				<div className="absolute inset-0 bg-gradient-to-b from-[#070d14]
+					via-[#0c1420] to-[#16283a]" />
 				<Moon />
 				<div className="absolute inset-x-0 bottom-0">
 					<PaddyField variant="dark" />
@@ -125,7 +127,8 @@ function Sun() {
 					className="absolute inset-0 rounded-full"
 					style={{
 						background:
-							"radial-gradient(circle, rgba(255,212,110,0.45) 0%, rgba(255,212,110,0.1) 50%, transparent 72%)",
+							"radial-gradient(circle, rgba(255,212,110,0.45) 0%, " +
+								"rgba(255,212,110,0.1) 50%, transparent 72%)",
 					}}
 				/>
 				<div
@@ -152,7 +155,8 @@ function Moon() {
 					className="absolute inset-2 rounded-full"
 					style={{
 						background:
-							"radial-gradient(circle, rgba(232,241,252,0.22) 0%, rgba(232,241,252,0.06) 55%, transparent 70%)",
+							"radial-gradient(circle, rgba(232,241,252,0.22) 0%, " +
+								"rgba(232,241,252,0.06) 55%, transparent 70%)",
 					}}
 				/>
 				<div
@@ -183,7 +187,8 @@ function PaddyField({ variant }: { variant: "light" | "dark" }) {
 			aria-hidden="true"
 		>
 			{paddyGeometry.map((row) => (
-				<g key={row.baseY} fill={palette.fills[row.index]} fillOpacity={palette.opacities[row.index]}>
+				<g key={row.baseY} fill={palette.fills[row.index]}
+					fillOpacity={palette.opacities[row.index]}>
 					{row.plants.map((p) => (
 						<g
 							key={p.id}
@@ -268,8 +273,13 @@ function paddyPlant(
 	const headCx = x + h * 0.05
 	return {
 		id,
-		stalkD: `M${x} ${baseY} C ${x - h * 0.03} ${baseY - h * 0.5} ${x + h * 0.04} ${baseY - h * 0.82} ${x + h * 0.05} ${baseY - h}`,
-		leafD: `M${x + h * 0.01} ${baseY - h * 0.5} Q ${x - h * 0.2} ${baseY - h * 0.42} ${x - h * 0.26} ${baseY - h * 0.3} Q ${x - h * 0.1} ${baseY - h * 0.34} ${x + h * 0.02} ${baseY - h * 0.46} Z`,
+		stalkD:
+			`M${x} ${baseY} C ${x - h * 0.03} ${baseY - h * 0.5} ` +
+			`${x + h * 0.04} ${baseY - h * 0.82} ${x + h * 0.05} ${baseY - h}`,
+		leafD:
+			`M${x + h * 0.01} ${baseY - h * 0.5} ` +
+			`Q ${x - h * 0.2} ${baseY - h * 0.42} ${x - h * 0.26} ${baseY - h * 0.3} ` +
+			`Q ${x - h * 0.1} ${baseY - h * 0.34} ${x + h * 0.02} ${baseY - h * 0.46} Z`,
 		headCx,
 		headCy,
 		headRx: h * 0.22,

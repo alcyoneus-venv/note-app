@@ -1,5 +1,6 @@
 import Link from "next/link"
 import AnimatedCard from "@/components/motion/AnimatedCard"
+import CrypticTitle from "@/components/CrypticTitle"
 
 function CodeIcon() {
 	return (
@@ -58,20 +59,18 @@ function SparklesIcon() {
 const workItems = [
 	{
 		title: "Build web applications",
-		description:
-			"Full-stack projects with Next.js, TypeScript, and Tailwind — from idea to deployment.",
+		description: "Known Techstacks: Laravel, NextJS, React and Angular",
 		icon: <CodeIcon />,
 	},
 	{
 		title: "Contribute & collaborate",
-		description:
-			"Team projects, internships, and open-source work with real users and deadlines.",
+		description: "Team projects, internships, and open-source.",
 		icon: <UsersIcon />,
 	},
 	{
-		title: "Learn constantly",
+		title: "Learn there and there",
 		description:
-			"New tools, new patterns, new problems — curiosity keeps the stack fresh.",
+			"New tools, new patterns, new problems — curiosity keep me alive.",
 		icon: <SparklesIcon />,
 	},
 ]
@@ -82,14 +81,18 @@ export default function Home() {
 			<div className="max-w-3xl mx-auto w-full">
 				{/* Hero */}
 				<div className="text-center space-y-6 text-grey-dark leading-relaxed">
-					<h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-dark-grey dark:text-off-white">
-						Frezy
-						<span className="brand-gradient-text"> Ananta</span>
+					<h1
+						className="text-4xl sm:text-5xl md:text-6xl font-bold text-center
+						text-dark-grey dark:text-white"
+					>
+						<CrypticTitle text="Frezy" />{" "}
+						<span className="brand-gradient-text">
+							<CrypticTitle text="Ananta" />
+						</span>
 					</h1>
 					<p className="text-lg">
-						Software Engineering student and web developer.
-						Building things, breaking things, and learning along
-						the way.
+						Software Engineering student and web developer. Building
+						things, breaking things, and learning along the way.
 					</p>
 					<p className="max-w-2xl mx-auto">
 						Hi! I&apos;m a Software Engineering undergraduate at
@@ -104,21 +107,17 @@ export default function Home() {
 						>
 							View Projects
 						</Link>
-						<Link
-							href="/pages/experience"
-							className="btn-ghost px-6 py-3 rounded-xl text-sm font-medium"
-						>
-							My Timeline
-						</Link>
 					</div>
 				</div>
 
 				{/* What I do — animated cards */}
 				<div className="mt-24">
-					<h2 className="text-2xl font-bold text-dark-grey dark:text-off-white mb-2 text-center">
+					<h2
+						className="text-2xl sm:text-3xl font-bold text-dark-grey
+						dark:text-white text-center mb-8"
+					>
 						What I do
 					</h2>
-					<div className="w-16 h-1 bg-sky-blue rounded-full mx-auto mb-8" />
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-5">
 						{workItems.map((item, i) => (
 							<AnimatedCard
@@ -129,7 +128,7 @@ export default function Home() {
 								<div className="w-11 h-11 rounded-xl bg-sky-blue/10 text-sky-blue flex items-center justify-center mb-4">
 									{item.icon}
 								</div>
-								<h3 className="text-lg font-semibold text-dark-grey dark:text-off-white mb-2">
+								<h3 className="text-lg font-bold text-dark-grey dark:text-white mb-2">
 									{item.title}
 								</h3>
 								<p className="text-sm text-grey-dark leading-relaxed">

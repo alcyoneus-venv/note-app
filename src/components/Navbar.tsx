@@ -116,7 +116,8 @@ export default function Navbar() {
 
 	return (
 		<nav className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50">
-			<div className="flex items-center gap-1.5 rounded-2xl bg-nav-bg/90 border border-card-border shadow-xl backdrop-blur-md px-2.5 py-2">
+			<div className="flex items-center gap-1.5 rounded-2xl bg-nav-bg/90 border
+				border-card-border shadow-xl backdrop-blur-md px-2.5 py-2">
 				{links.map((link) => {
 					const isActive = pathname === link.href
 					return (
@@ -125,9 +126,14 @@ export default function Navbar() {
 							href={link.href}
 							className="group relative flex flex-col items-center"
 						>
-							<span className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-xl bg-[#171E27] text-white text-xs font-medium whitespace-nowrap opacity-0 scale-90 transition-all duration-200 group-hover:opacity-100 group-hover:scale-100 pointer-events-none shadow-lg">
+							<span className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2
+								px-3 py-1.5 rounded-xl bg-[#171E27] text-white text-xs font-medium
+								whitespace-nowrap opacity-0 scale-90 transition-all duration-200
+								group-hover:opacity-100 group-hover:scale-100 pointer-events-none
+								shadow-lg">
 								{link.name}
-								<span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#171E27]" />
+								<span className="absolute top-full left-1/2 -translate-x-1/2
+									border-4 border-transparent border-t-[#171E27]" />
 							</span>
 							<motion.span
 								whileHover={{ scale: 1.15, y: -4 }}
@@ -137,7 +143,8 @@ export default function Navbar() {
 									stiffness: 400,
 									damping: 18,
 								}}
-								className={`flex items-center justify-center w-12 h-12 rounded-xl transition-colors duration-200 ${
+								className={`flex items-center justify-center w-12 h-12
+									rounded-xl transition-colors duration-200 ${
 									isActive
 										? "bg-sky-blue text-white shadow-md shadow-sky-blue/30"
 										: "text-nav-text hover:text-sky-blue hover:bg-nav-hover-bg"

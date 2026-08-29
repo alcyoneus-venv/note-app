@@ -3,8 +3,11 @@
 import { useState } from "react"
 import { CONTACT_EMAIL } from "@/lib/config"
 
-const inputStyles =
-	"w-full px-4 py-2.5 rounded-xl bg-background border border-card-border text-foreground text-sm placeholder:text-grey focus:outline-none focus:border-sky-blue focus:ring-2 focus:ring-sky-blue/20 transition-all duration-200"
+const inputStyles = [
+	"w-full px-4 py-2.5 rounded-xl bg-background border border-card-border",
+	"text-foreground text-sm placeholder:text-grey focus:outline-none",
+	"focus:border-sky-blue focus:ring-2 focus:ring-sky-blue/20 transition-all duration-200",
+].join(" ")
 
 export default function ContactForm() {
 	const [form, setForm] = useState({

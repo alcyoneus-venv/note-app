@@ -133,14 +133,20 @@ const socials: SocialLink[] = [
 
 export default function ContactPage() {
 	return (
-		<div className="min-h-[calc(100vh-8rem)] px-6 py-10 sm:py-16 flex items-center">
-			<AnimatedCard className="w-full max-w-3xl mx-auto">
+		<div className="min-h-[calc(100vh-8rem)] px-6 py-10 sm:py-16
+			flex flex-col items-center justify-center">
+				<h1 className="text-3xl sm:text-4xl font-bold text-dark-grey
+					dark:text-white text-center mb-8">
+				Let me know
+			</h1>
+			<AnimatedCard className="w-full max-w-3xl">
 				<div className="grid sm:grid-cols-[1.15fr_1fr]">
 					<div className="p-6 sm:p-7">
 						<ContactForm />
 					</div>
-					<aside className="sm:border-l border-card-border sm:bg-background/40 p-6 sm:p-7 flex flex-col justify-center">
-						<h3 className="text-base font-semibold text-dark-grey dark:text-off-white mb-1">
+					<aside className="sm:border-l border-card-border sm:bg-background/40
+					p-6 sm:p-7 flex flex-col justify-center">
+						<h3 className="text-lg font-bold text-dark-grey dark:text-white mb-1">
 							Find me on
 						</h3>
 						<p className="text-xs text-grey mb-5">
@@ -154,20 +160,28 @@ export default function ContactPage() {
 									{...(social.external
 										? { target: "_blank", rel: "noopener noreferrer" }
 										: {})}
-									className="group flex items-center gap-3 rounded-xl px-2.5 py-2 hover:bg-nav-hover-bg transition-all duration-200 hover:translate-x-1"
+									className="group flex items-center gap-3 rounded-xl px-2.5 py-2
+									hover:bg-nav-hover-bg transition-all duration-200
+									hover:translate-x-1"
 								>
-									<span className="w-9 h-9 rounded-full bg-sky-blue/10 text-sky-blue group-hover:bg-sky-blue group-hover:text-white transition-colors duration-200 flex items-center justify-center shrink-0">
+									<span className="w-9 h-9 rounded-full bg-sky-blue/10 text-sky-blue
+									group-hover:bg-sky-blue group-hover:text-white
+									transition-colors duration-200 flex items-center
+									justify-center shrink-0">
 										{social.icon}
 									</span>
 									<span className="flex flex-col min-w-0">
-										<span className="text-sm font-semibold text-dark-grey dark:text-off-white group-hover:text-sky-blue transition-colors duration-200">
+										<span className="text-sm font-semibold text-dark-grey dark:text-white
+										group-hover:text-sky-blue transition-colors duration-200">
 											{social.name}
 										</span>
 										<span className="text-xs text-grey truncate">
 											{social.handle}
 										</span>
 									</span>
-									<span className="ml-auto text-sky-blue opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">
+									<span className="ml-auto text-sky-blue opacity-0 -translate-x-1
+									group-hover:opacity-100 group-hover:translate-x-0
+									transition-all duration-200">
 										<ArrowIcon />
 									</span>
 								</a>

@@ -98,12 +98,18 @@ export default function ThemeToggle() {
 			aria-label="Toggle dark mode"
 			className="group relative flex flex-col items-center"
 		>
-			<span className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-xl bg-[#171E27] text-white text-xs font-medium whitespace-nowrap opacity-0 scale-90 transition-all duration-200 group-hover:opacity-100 group-hover:scale-100 pointer-events-none shadow-lg">
+				<span className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2
+					px-3 py-1.5 rounded-xl bg-[#171E27] text-white text-xs font-medium
+					whitespace-nowrap opacity-0 scale-90 transition-all duration-200
+					group-hover:opacity-100 group-hover:scale-100 pointer-events-none
+					shadow-lg">
 				{dark ? "Light" : "Dark"}
-				<span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#171E27]" />
+				<span className="absolute top-full left-1/2 -translate-x-1/2 border-4
+					border-transparent border-t-[#171E27]" />
 			</span>
 			<span
-				className={`w-12 h-12 flex items-center justify-center rounded-xl transition-all duration-200 ${
+				className={`w-12 h-12 flex items-center justify-center rounded-xl
+					transition-all duration-200 ${
 					dark
 						? "text-sky-blue bg-nav-active-bg"
 						: "text-sky-blue hover:bg-nav-hover-bg"

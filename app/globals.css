@@ -87,10 +87,11 @@ body * {
 /* Glowing text/brand accents */
 .brand-gradient-text {
   background: linear-gradient(
-    120deg,
-    var(--sky-blue-light),
-    var(--sky-blue) 45%,
-    var(--sky-blue-dark)
+    100deg,
+    var(--sky-blue-light) 0%,
+    var(--sky-blue) 40%,
+    var(--sky-blue-dark) 70%,
+    var(--off-white) 100%
   );
   -webkit-background-clip: text;
   background-clip: text;

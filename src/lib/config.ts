@@ -5,7 +5,7 @@ export const SITE_NAME = "Alcyoneus-Venv"
 
 // Email shown in the contact form and footer.
 // Form submissions open the visitor's mail client addressed to this address.
-export const CONTACT_EMAIL = "hello@example.com"
+export const CONTACT_EMAIL = "pitik890@gmail.com"
 
 // Google Drive media embed shown on the About Me page.
 // Steps:
