@@ -2,7 +2,7 @@
 
 import AnimatedCard from "@/components/motion/AnimatedCard"
 import { useMemo, useState } from "react"
-import type { GithubProject } from "@/models/project"
+import type { GithubProject } from "@/models/Project"
 import { GITHUB_USER } from "@/lib/config"
 
 export default function ProjectGrid({

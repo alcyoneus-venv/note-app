@@ -1,4 +1,4 @@
-import type { GithubProject } from "@/models/project"
+import type { GithubProject } from "@/models/Project"
 import { GITHUB_USER } from "@/lib/config"
 
 export async function getGithubProject(): Promise<GithubProject[]> {

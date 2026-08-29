@@ -1,4 +1,3 @@
-"use client"
 export interface GithubProject {
 	id: number
 	name: string
