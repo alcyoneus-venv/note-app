@@ -1,6 +1,6 @@
 import Link from "next/link"
 import AnimatedCard from "@/components/motion/AnimatedCard"
-import CrypticTitle from "@/components/CrypticTitle"
+import ScrambleText from "@/components/ScrambleText"
 
 function CodeIcon() {
 	return (
@@ -85,9 +85,9 @@ export default function Home() {
 						className="text-4xl sm:text-5xl md:text-6xl font-bold text-center
 						text-dark-grey dark:text-white"
 					>
-						<CrypticTitle text="Frezy" />{" "}
+						<ScrambleText text="Frezy" />{" "}
 						<span className="brand-gradient-text">
-							<CrypticTitle text="Ananta" />
+							<ScrambleText text="Ananta" />
 						</span>
 					</h1>
 					<p className="text-lg">

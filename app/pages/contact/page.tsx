@@ -136,9 +136,12 @@ export default function ContactPage() {
 		<div className="min-h-[calc(100vh-8rem)] px-6 py-10 sm:py-16
 			flex flex-col items-center justify-center">
 				<h1 className="text-3xl sm:text-4xl font-bold text-dark-grey
-					dark:text-white text-center mb-8">
+					dark:text-white text-center mb-3">
 				Let me know
 			</h1>
+			<p className="text-sm text-grey-dark text-center mb-8">
+				I&apos;m available, just not every now and then
+			</p>
 			<AnimatedCard className="w-full max-w-3xl">
 				<div className="grid sm:grid-cols-[1.15fr_1fr]">
 					<div className="p-6 sm:p-7">
