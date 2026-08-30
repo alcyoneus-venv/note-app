@@ -40,23 +40,6 @@ function FolderIcon() {
 	)
 }
 
-function TimelineIcon() {
-	return (
-		<svg
-			className="w-6 h-6"
-			aria-hidden="true"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			strokeWidth="1.8"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-		>
-			<path d="M12 8v4l2.5 2.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-		</svg>
-	)
-}
-
 function ContactIcon() {
 	return (
 		<svg
@@ -93,6 +76,27 @@ function GamesIcon() {
 	)
 }
 
+function LoomIcon() {
+	return (
+		<svg
+			className="w-6 h-6"
+			aria-hidden="true"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="1.8"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<circle cx="12" cy="5" r="2" />
+			<circle cx="6" cy="12" r="2" />
+			<circle cx="18" cy="12" r="2" />
+			<circle cx="12" cy="19" r="2" />
+			<path d="M12 7v10M8 12h8M6.5 12.5 11 6M18 12l-4-6M11 19l-3.5-5M13 19l3.5-5" />
+		</svg>
+	)
+}
+
 type NavLink = {
 	name: string
 	href: string
@@ -102,11 +106,7 @@ type NavLink = {
 const links: NavLink[] = [
 	{ name: "Home", href: "/", icon: <HomeIcon /> },
 	{ name: "Projects", href: "/pages/projects", icon: <FolderIcon /> },
-	{
-		name: "Timeline",
-		href: "/pages/experience",
-		icon: <TimelineIcon />,
-	},
+	{ name: "Loom", href: "/pages/temporal-loom", icon: <LoomIcon /> },
 	{ name: "Contact", href: "/pages/contact", icon: <ContactIcon /> },
 	{ name: "Games", href: "/pages/games", icon: <GamesIcon /> },
 ]

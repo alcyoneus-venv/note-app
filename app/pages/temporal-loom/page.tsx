@@ -1,6 +1,6 @@
-import TimelineGraph from "@/components/motion/TimelineGraph"
+import HorizontalTimeline from "@/components/timeline/HorizontalTimeline"
 
-export default function ExperiencePage() {
+export default function TemporalLoomPage() {
 	return (
 		<div className="py-16 px-6">
 			<div className="max-w-5xl mx-auto mb-14 text-center">
@@ -8,11 +8,12 @@ export default function ExperiencePage() {
 					For All Time. Always.
 				</h1>
 				<p className="text-grey-dark text-sm">
-					You cannot scale for infinite
+					You cannot scale for infinite. It's like, being divided by
+					zero.
 				</p>
 			</div>
 
-			<TimelineGraph />
+			<HorizontalTimeline />
 		</div>
 	)
 }
