@@ -27,3 +27,21 @@ export const SOCIALS = {
 
 // GitHub username whose repositories populate the Projects page.
 export const GITHUB_USER = "alcyoneus-venv"
+
+// Steam vanity name resolved against the Steam community ID.
+export const STEAM_VANITY = "messages_three"
+
+// Featured games showcased on the Games page with achievement progress.
+export const STEAM_FEATURED_GAMES = [
+	{ appid: 582010, title: "Monster Hunter: World" },
+	{ appid: 475150, title: "Titan Quest Anniversary Edition" },
+	{ appid: 304390, title: "For Honor" },
+	{ appid: 230410, title: "Warframe" },
+	{ appid: 221910, title: "The Stanley Parable" },
+	{ appid: 550, title: "Left 4 Dead 2" },
+]
+
+// A separate, personally-curated list shown on the Games page.
+export const STEAM_FAVORITE_GAMES = [
+	{ appid: 475150, title: "Titan Quest Anniversary Edition" },
+]

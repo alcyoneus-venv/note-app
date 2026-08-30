@@ -4,12 +4,17 @@ import { animate, scrambleText } from "animejs"
 import { useInView } from "motion/react"
 import { useEffect, useRef } from "react"
 
-type CrypticTitleProps = {
+type ScrambleTextProps = {
 	text: string
 	className?: string
+	seed?: number
 }
 
-export default function CrypticTitle({ text, className }: CrypticTitleProps) {
+export default function ScrambleText({
+	text,
+	className,
+	seed = 7,
+}: ScrambleTextProps) {
 	const ref = useRef<HTMLSpanElement>(null)
 	const inView = useInView(ref, { once: true, amount: 0.5 })
 
@@ -18,14 +23,16 @@ export default function CrypticTitle({ text, className }: CrypticTitleProps) {
 		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
 
 		animate(ref.current, {
-			scrambleText: scrambleText({
+			innerHTML: scrambleText({
 				text,
 				chars: "a-zA-Z0-9!%#_",
-				seed: 7,
-				duration: 900,
+				seed,
+				duration: 1800,
+				settleDuration: 900,
+				revealRate: 30,
 			}),
 		})
-	}, [inView, text])
+	}, [inView, text, seed])
 
 	return (
 		<span ref={ref} className={className}>
